@@ -25,12 +25,13 @@ export default function ItemButton({ onAddItemFunc }) {
 
     let newItem = {
       id: id,
-      item: name,
-      quant: quantity,
-      cat: category,
+      name: name,
+      quantity: quantity,
+      category: category,
     };
 
     onAddItemFunc(newItem);
+
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -38,10 +39,7 @@ export default function ItemButton({ onAddItemFunc }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col max-w-96 p-2 m-4 bg-teal-950 rounded-md"
-    >
+    <form className="flex flex-col max-w-96 p-2 m-4 bg-teal-950 rounded-md">
       {/* new for week 5 */}
       <div className="m-4">
         <input
@@ -97,7 +95,7 @@ export default function ItemButton({ onAddItemFunc }) {
         </div>
       </div>
       <div className="max-w-96 h-14 m-4 bg-sky-400 text-white text-center rounded-md hover:bg-sky-600 disabled:bg-stone-300">
-        <button className="w-full h-full" type="submit">
+        <button className="w-full h-full" type="submit" onClick={handleSubmit}>
           Add to list
         </button>
       </div>
