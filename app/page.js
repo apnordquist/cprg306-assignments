@@ -27,6 +27,15 @@ export default function Homepage() {
             Week 5 Assignment
           </Link>
         </li>
+        <li>
+          <Link href="/week-6" className={linkStyles}>
+            Week 6 Assignment
+          </Link>
+        </li>        <li>
+          <Link href="/week-7" className={linkStyles}>
+            Week 7 Assignment
+          </Link>
+        </li>
       </ul>
     </main>
   );
