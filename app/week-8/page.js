@@ -16,15 +16,18 @@ export default function Page() {
   };
 
   const handleItemSelect = (itemObj) => {
-    setSelectedItem = itemObj.name;
+    let newName = itemList.name.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '')
+    setSelectedItem(newName);
   };
 
   return (
     <main>
       <h1 className="font-bold text-3xl m-3 text-yellow-100">Shopping List</h1>
       <ItemButton onAddItemFunc={handleAddItem} />
-      <ItemList itemList={itemList} onItemSelect={handleItemSelect} />
-      <MealIdeas ingredient={selectedItem} />
+      <div className="flex">
+        <ItemList itemList={itemList} onItemSelect={handleItemSelect} />
+        <MealIdeas ingredient={selectedItem} />
+      </div>
     </main>
   );
 }
