@@ -11,7 +11,7 @@ export default function MealIdeas({ ingredient }) {
         "https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}"
       );
       const data = await response.json();
-      return data;
+      return data.meals;
     } catch (error) {
       console.error("Error:", error);
     }
