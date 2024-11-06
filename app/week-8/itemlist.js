@@ -53,7 +53,7 @@ export default function ItemList({ itemList, onItemSelect }) {
       </div>
       <ul>
         {itemList.map((item) => (
-          <ItemComp itemObj={item} onSelect={() => onItemSelect(item.name)} key={item.id} />
+          <ItemComp itemObj={item} onSelect={onItemSelect} key={item.id} />
         ))}
       </ul>
     </div>
