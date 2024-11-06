@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-const [meals, setMeals] = useState([]);
+export default function MealIdeas({ ingredient }) {
+  const [meals, setMeals] = useState([]);
 
-export default function MealIdeas(ingredient) {
   async function fetchMealIdeas(ingredient) {
     try {
       const response = await fetch(
@@ -19,32 +19,34 @@ export default function MealIdeas(ingredient) {
 
   async function loadMealIdeas(ingredient) {
     try {
-      fetchMealIdeas(ingredient);
-
-      let mealIdeas = [...data.strMeal];
-
-      return mealIdeas;
+      const mealIdeas = await fetchMealIdeas(ingredient);
+      setMeals(mealIdeas);
     } catch (error) {
       console.error("Error:", error);
     }
   }
 
   useEffect(() => {
-    async () => {
-      if (ingredient != null && ingredient.length > 0) {
-        setMeals(loadMealIdeas(ingredient));
-      }
-    };
-  });
+    loadMealIdeas(ingredient);
+  }, [ingredient]);
 
   return (
-    <div>
-      <h3>Meal Ideas:</h3>
-      <ul>
-        {meals.map((meal) => (
-          <li>{meal}</li>
-        ))}
-      </ul>
+    <div className="m-3 p-3">
+      <h3 className="text-xl inline-block">Meal Ideas:</h3>
+      <div>
+        {meals ? (
+          <div>
+            <p>meal ideas for {ingredient}:</p>
+            <ul>
+              {meals.map((meal) => (
+                <li key={meal.idMeal}>{meal.strMeal}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>No meals were found</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -51,9 +51,9 @@ export default function ItemList({ itemList, onItemSelect }) {
           Category
         </button>
       </div>
-      <ul onClick={() => onItemSelect}>
+      <ul>
         {itemList.map((item) => (
-          <ItemComp itemObj={item} key={item.id} />
+          <ItemComp itemObj={item} onSelect={() => onItemSelect(item.name)} key={item.id} />
         ))}
       </ul>
     </div>
