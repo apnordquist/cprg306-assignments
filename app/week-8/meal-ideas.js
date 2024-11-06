@@ -31,20 +31,27 @@ export default function MealIdeas({ ingredient }) {
   }, [ingredient]);
 
   return (
-    <div className="m-3 p-3">
-      <h3 className="text-xl inline-block">Meal Ideas:</h3>
+    <div>
+      <h3 className="text-xl inline-block m-3 p-3">Meal Ideas:</h3>
       <div>
         {meals ? (
           <div>
             <p>meal ideas for {ingredient}:</p>
             <ul>
               {meals.map((meal) => (
-                <li key={meal.idMeal}>{meal.strMeal}</li>
+                <li
+                  key={meal.idMeal}
+                  className="rounded-md max-w-72 p-2 m-2 bg-green-950 text-yellow-100"
+                >
+                  <p className="font-bold text-xl m-1">{meal.strMeal}</p>
+                </li>
               ))}
             </ul>
           </div>
         ) : (
-          <p>No meals were found</p>
+          <div className="rounded-md max-w-72 p-2 m-2 bg-green-950 text-yellow-100">
+            <p className="font-bold text-xl m-1">No meals were found</p>
+          </div>
         )}
       </div>
     </div>
