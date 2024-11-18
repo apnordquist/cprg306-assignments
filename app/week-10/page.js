@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
-import { dbGetAllBlogPostsByUser } from "./_services/blog-service";
 
 export default function SignInPage() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
@@ -24,13 +22,6 @@ export default function SignInPage() {
     }
   }
 
-  const [blogPostList, setBlogPostList] = useState([]);
-  useEffect(() => {
-    if (user) {
-      dbGetAllBlogPostsByUser(user.uid, setBlogPostList);
-    }
-  }, [user]);
-
   return (
     <main>
       <header>
@@ -45,20 +36,7 @@ export default function SignInPage() {
             <p className="text-lg m-2">Welcome {user.displayName}!</p>
           </div>
           <div>
-            <Link href="/week-10/add-blog-post/">Create post.</Link>
-            <section>
-              <h2>My Posts</h2>
-              <ul>
-                {blogPostList.map((post) => {
-                  let postUrl = `/week-10/${post.id}`;
-                  return (
-                    <li key={post.id}>
-                      <Link href={postUrl}>{post.title}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
+            <Link href="/week-10/shopping-list/">Go to shopping list.</Link>
           </div>
           <div>
             <button
