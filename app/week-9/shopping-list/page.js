@@ -48,7 +48,7 @@ export default function ProtectedPage() {
           </h1>
           <ItemButton onAddItemFunc={handleAddItem} />
           <div className="flex">
-            <ItemList itemList={itemList} onItemSelect={handleItemSelect} />
+            <ItemList itemList={itemList} onSelect={handleItemSelect} />
             <MealIdeas ingredient={selectedItem} />
           </div>
         </div>

@@ -54,14 +54,14 @@ export default function ProtectedPage() {
           </h1>
           <ItemButton onAddItemFunc={handleAddItem} />
           <div className="flex">
-            <ItemList itemList={itemList} onItemSelect={handleItemSelect} />
+            <ItemList itemList={itemList} onSelect={handleItemSelect} />
             <MealIdeas ingredient={selectedItem} />
           </div>
         </div>
       ) : (
         <div>
           <p>access denied</p>
-          <Link href="/week-9/">return to login</Link>
+          <Link href="/week-10/">return to login</Link>
         </div>
       )}
       <div>

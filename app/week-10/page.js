@@ -36,7 +36,7 @@ export default function SignInPage() {
             <p className="text-lg m-2">Welcome {user.displayName}!</p>
           </div>
           <div>
-            <Link href="/week-10/shopping-list/">Go to shopping list.</Link>
+            <Link href="/week-10/shopping-list/" className="text-lg m-2">Go to shopping list.</Link>
           </div>
           <div>
             <button
