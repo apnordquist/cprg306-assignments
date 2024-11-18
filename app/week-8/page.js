@@ -32,7 +32,7 @@ export default function Page() {
       <h1 className="font-bold text-3xl m-3 text-yellow-100">Shopping List</h1>
       <ItemButton onAddItemFunc={handleAddItem} />
       <div className="flex">
-        <ItemList itemList={itemList} onSelect={handleItemSelect} />
+        <ItemList itemList={itemList} onItemsSelect={handleItemSelect} />
         <MealIdeas ingredient={selectedItem} />
       </div>
     </main>
